@@ -3,4 +3,7 @@
   background: white;
   margin-right: 0.4rem;
   box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

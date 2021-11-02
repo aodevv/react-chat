@@ -1,9 +1,6 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-
-import { selectIds } from "../../redux/leftMenu/LeftMenu.selectors";
 
 import { toggleActive } from "../../redux/leftMenu/LeftMenu.actions";
 
@@ -11,28 +8,24 @@ import { LeftMenuContainer, IconsContainer } from "./LeftMenu.styles";
 
 import LeftMenuIcon from "../LeftMenuIcon/LeftMenuIcon";
 
-const LeftMenu = ({ ids }) => {
+const LeftMenu = ({ toggleActive }) => {
   return (
     <LeftMenuContainer>
       <IconsContainer>
         <LeftMenuIcon
-          onClick={() => toggleActive([1, 0, 0, 0])}
-          isActive={!!ids.leftMenu[0]}
+          id={0}
+          toggleActive={toggleActive}
           icon="ri-user-2-line"
         />
         <LeftMenuIcon
-          onClick={() => toggleActive([0, 1, 0, 0])}
-          isActive={!!ids.leftMenu[1]}
+          id={1}
+          toggleActive={toggleActive}
           icon="ri-message-3-line"
         />
+        <LeftMenuIcon id={2} toggleActive={toggleActive} icon="ri-group-line" />
         <LeftMenuIcon
-          onClick={() => toggleActive([0, 0, 1, 0])}
-          isActive={!!ids.leftMenu[2]}
-          icon="ri-group-line"
-        />
-        <LeftMenuIcon
-          onClick={() => toggleActive([0, 0, 0, 1])}
-          isActive={!!ids.leftMenu[3]}
+          id={3}
+          toggleActive={toggleActive}
           icon="ri-settings-2-line"
         />
       </IconsContainer>
@@ -40,12 +33,8 @@ const LeftMenu = ({ ids }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  ids: selectIds,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   toggleActive: (ids) => dispatch(toggleActive(ids)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftMenu);
+export default connect(null, mapDispatchToProps)(LeftMenu);
