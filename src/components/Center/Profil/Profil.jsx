@@ -11,7 +11,7 @@ import Oussama from "../../../assets/oussama.jpg";
 const Profil = () => {
   return (
     <ProfilContainer>
-      <HeadingPrimary text="Profil" className="u-mb-m" />
+      <HeadingPrimary text="Profil" className="u-mb-s" />
       <ProfilInfo>
         <Thumbnail isBig={true} img={Oussama} />
         <HeadingSecendary

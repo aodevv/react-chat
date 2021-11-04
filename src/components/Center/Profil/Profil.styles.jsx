@@ -21,7 +21,7 @@ export const ProfilInfo = styled.div`
 export const ProfilStatus = styled.div`
   display: flex;
   align-items: center;
-  div {
+  span {
     margin-right: 1rem;
     display: inline-block;
   }

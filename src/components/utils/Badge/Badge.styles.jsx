@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Badge = styled.div`
+export const Badge = styled.span`
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;
@@ -13,4 +13,22 @@ export const Badge = styled.div`
         return null;
     }
   }}
+
+  ${({ isRound }) =>
+    isRound
+      ? `
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: var(--color-red-pink-light);
+        color: var(--color-red-pink);
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      `
+      : null}
 `;
