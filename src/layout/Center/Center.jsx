@@ -22,7 +22,11 @@ const Center = ({ ids }) => {
     }
   };
 
-  return <div className="Center">{getComponent(ids)}</div>;
+  return (
+    <div className="Center">
+      <div className="Center__container">{getComponent(ids)}</div>
+    </div>
+  );
 };
 
 const mapStateToProps = createStructuredSelector({
