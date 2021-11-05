@@ -3,7 +3,6 @@ import { ThumbnailContainer, ImgContainer } from "./Thumbnail.styles";
 import { Badge } from "../utils/Badge/Badge.styles";
 
 const Thumbnail = ({ isBig, img, status, className }) => {
-  console.log(img);
   return (
     <ThumbnailContainer isBig={isBig} className={className}>
       {img ? (

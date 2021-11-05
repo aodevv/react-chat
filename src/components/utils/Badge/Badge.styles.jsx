@@ -8,7 +8,7 @@ export const Badge = styled.span`
   ${({ status }) => {
     switch (status) {
       case "online":
-        return `background-color: green;`;
+        return `background-color: var(--color-online);`;
       default:
         return null;
     }

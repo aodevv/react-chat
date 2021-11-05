@@ -6,14 +6,14 @@ import Thumbnail from "../../Thumbnail/Thumbnail";
 import { ProfilContainer, ProfilInfo, ProfilStatus } from "./Profil.styles";
 import { Badge } from "../../utils/Badge/Badge.styles";
 
-import Oussama from "../../../assets/oussama.jpg";
+import ana from "../../../assets/oussama.jpg";
 
 const Profil = () => {
   return (
     <ProfilContainer>
       <HeadingPrimary text="Profil" className="u-mb-s" />
       <ProfilInfo>
-        <Thumbnail isBig={true} img={Oussama} />
+        <Thumbnail isBig={true} img={ana} />
         <HeadingSecendary
           isBig={true}
           text="Lalo Salamanca"

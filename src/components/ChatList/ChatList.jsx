@@ -1,54 +1,34 @@
 import React from "react";
 
+import { connect } from "react-redux";
+import {
+  selectCurrentChats,
+  selectActiveList,
+} from "../../redux/chats/chats.selectors";
+import { createStructuredSelector } from "reselect";
+import { setActiveChats } from "../../redux/chats/chats.actions";
+
 import { ChatListContainer } from "./ChatList.styles";
 import ChatItem from "../ChatItem/ChatItem";
 
-const ChatList = () => {
-  const ChatItems = [
-    {
-      name: "Lalo Salamanca",
-      lastMessage: "Helloooo",
-      img: null,
-      status: "online",
-      time: "02:40",
-      unread: 0,
-      active: true,
-    },
-    {
-      name: "Jorge De Guzmàn",
-      lastMessage: "okay sure",
-      img: null,
-      status: "away",
-      time: "12:40",
-      unread: 3,
-      active: false,
-    },
-    {
-      name: "Lalo Salamanca",
-      lastMessage: "Helloooo",
-      img: null,
-      status: "online",
-      time: "02:40",
-      unread: 0,
-      active: false,
-    },
-    {
-      name: "Lalo Salamanca",
-      lastMessage: "Helloooo",
-      img: null,
-      status: "online",
-      time: "02:40",
-      unread: 0,
-      active: false,
-    },
-  ];
+const ChatList = ({ chats, actives }) => {
+  console.log(chats);
   return (
     <ChatListContainer>
-      {ChatItems.map((item, index) => {
+      {chats.map((item, index) => {
         return <ChatItem key={index} {...item} />;
       })}
     </ChatListContainer>
   );
 };
 
-export default ChatList;
+const mapStateToProps = createStructuredSelector({
+  chats: selectCurrentChats,
+  actives: selectActiveList,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setActiveChats: (list) => dispatch(setActiveChats(list)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatList);

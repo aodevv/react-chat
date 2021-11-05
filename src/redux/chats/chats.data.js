@@ -1,0 +1,38 @@
+export const Chats = [
+  {
+    name: "Lalo Salamanca",
+    lastMessage: "Helloooo",
+    img: null,
+    status: "online",
+    time: "02:40",
+    unread: 0,
+    active: true,
+  },
+  {
+    name: "Jorge De Guzmàn",
+    lastMessage: "okay sure",
+    img: null,
+    status: "away",
+    time: "12:40",
+    unread: 3,
+    active: false,
+  },
+  {
+    name: "Lalo Salamanca",
+    lastMessage: "Helloooo",
+    img: null,
+    status: "online",
+    time: "02:40",
+    unread: 0,
+    active: false,
+  },
+  {
+    name: "Lalo Salamanca",
+    lastMessage: "Helloooo",
+    img: null,
+    status: "online",
+    time: "02:40",
+    unread: 0,
+    active: false,
+  },
+];

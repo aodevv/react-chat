@@ -1,36 +1,14 @@
 import React from "react";
 
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentFriends } from "../../redux/friendList/friendList.selectors";
+
 import { FriendsList } from "./FriendsCarousel.styles";
 import Friend from "../Friend/Friend";
 
-const FriendsCarousel = () => {
-  const Friends = [
-    {
-      name: "Bob",
-      status: "online",
-      img: null,
-    },
-    {
-      name: "Salamnca",
-      status: "offline",
-      img: null,
-    },
-    {
-      name: "Saad",
-      status: "away",
-      img: null,
-    },
-    {
-      name: "Mostaphaaaaaa",
-      status: "offline",
-      img: null,
-    },
-    {
-      name: "Nacho",
-      status: "offline",
-      img: null,
-    },
-  ];
+const FriendsCarousel = ({ friends }) => {
+  const Friends = friends;
   return (
     <FriendsList>
       {Friends.map((friend, index) => {
@@ -40,4 +18,8 @@ const FriendsCarousel = () => {
   );
 };
 
-export default FriendsCarousel;
+const mapStateToProps = createStructuredSelector({
+  friends: selectCurrentFriends,
+});
+
+export default connect(mapStateToProps)(FriendsCarousel);
