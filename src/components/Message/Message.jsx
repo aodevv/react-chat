@@ -1,5 +1,9 @@
 import React from "react";
 
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectMessagesSenders } from "../../redux/chats/chats.selectors";
+
 import Thumbnail from "../Thumbnail/Thumbnail";
 
 import {
@@ -10,11 +14,11 @@ import {
   MsgSender,
 } from "./Message.styles";
 
-const Message = ({ sender, content, isRight, time, img }) => {
+const Message = ({ sender, content, isRight, time, img, id, sendersList }) => {
   return (
     <MessageLi isRight={isRight}>
       <MessageContainer>
-        <Thumbnail img={img} className="thumbnail" />
+        <Thumbnail img={img} className={`thumbnail`} />
         <MsgTextContainer isRight={isRight}>
           <div className="msg-content">
             <p>{content}</p>
@@ -30,4 +34,8 @@ const Message = ({ sender, content, isRight, time, img }) => {
   );
 };
 
-export default Message;
+const mapStateToProps = createStructuredSelector({
+  sendersList: selectMessagesSenders,
+});
+
+export default connect(mapStateToProps)(Message);

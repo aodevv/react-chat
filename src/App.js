@@ -6,14 +6,15 @@ import Right from "./layout/Right/Right";
 
 import { connect } from "react-redux";
 import { getFriends } from "./redux/friendList/friendList.actions";
-import { getChats } from "./redux/chats/chats.actions";
+import { getChats, getMessages } from "./redux/chats/chats.actions";
 
 import { GlobalStyles } from "./GlobalStyles";
 
-function App({ getFriends, getChats }) {
+function App({ getFriends, getChats, getMessages }) {
   useEffect(() => {
     getFriends();
     getChats();
+    getMessages();
   }, []);
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App({ getFriends, getChats }) {
 const mapDispatchToProps = (dispatch) => ({
   getFriends: () => dispatch(getFriends()),
   getChats: () => dispatch(getChats()),
+  getMessages: () => dispatch(getMessages()),
 });
 
 export default connect(null, mapDispatchToProps)(App);

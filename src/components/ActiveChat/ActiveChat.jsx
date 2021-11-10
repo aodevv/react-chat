@@ -1,77 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectMessages } from "../../redux/chats/chats.selectors";
+import { setMessagesSenders } from "../../redux/chats/chats.actions";
 
 import { RightCenter, MessagesUl } from "./ActiveChat.styles";
 import Message from "../Message/Message";
 
-const ActiveChat = () => {
-  const Messages = [
-    {
-      sender: "Lalo Salamnca",
-      content: "hi",
-      isRight: false,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "hi",
-      isRight: true,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "how's going on your project?",
-      isRight: false,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "Do you need any help?",
-      isRight: false,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "Hello",
-      isRight: true,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "how's going on your project?",
-      isRight: false,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "Do you need any help?",
-      isRight: false,
-      time: "00:42",
-      img: null,
-    },
-    {
-      sender: "Lalo Salamnca",
-      content: "Hey there!",
-      isRight: true,
-      time: "00:42",
-      img: null,
-    },
-  ];
-
+const ActiveChat = ({ Messages, setMessagesSenders }) => {
+  useEffect(() => {
+    console.log(Messages);
+    setMessagesSenders(Messages.map((msg, index) => msg.received));
+  }, [Messages]);
   return (
     <RightCenter>
       <MessagesUl>
         {Messages.map((Msg, index) => {
-          return <Message key={index} {...Msg} />;
+          return <Message key={index} {...Msg} id={index} />;
         })}
       </MessagesUl>
     </RightCenter>
   );
 };
 
-export default ActiveChat;
+const mapStateToProps = createStructuredSelector({
+  Messages: selectMessages,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setMessagesSenders: (list) => dispatch(setMessagesSenders(list)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActiveChat);
