@@ -6,6 +6,11 @@ export const getMessages = () => ({
   type: "GET_MESSAGES",
 });
 
+export const setMessages = (newMessages) => ({
+  type: "SET_MESSAGES",
+  payload: newMessages,
+});
+
 export const setMessagesSenders = (list) => ({
   type: "SET_MESSAGES_SENDERS",
   payload: list,

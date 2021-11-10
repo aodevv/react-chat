@@ -18,7 +18,14 @@ const Message = ({ sender, content, isRight, time, img, id, sendersList }) => {
   return (
     <MessageLi isRight={isRight}>
       <MessageContainer>
-        <Thumbnail img={img} className={`thumbnail`} />
+        <Thumbnail
+          img={img}
+          className={`thumbnail ${
+            sendersList[id + 1] && sendersList[id] === sendersList[id + 1]
+              ? "visi-hidden"
+              : null
+          }`}
+        />
         <MsgTextContainer isRight={isRight}>
           <div className="msg-content">
             <p>{content}</p>
@@ -27,7 +34,10 @@ const Message = ({ sender, content, isRight, time, img, id, sendersList }) => {
               <span className="u-vertical-align">{time}</span>
             </ChatTime>
           </div>
-          <MsgSender>{sender}</MsgSender>
+          {sendersList[id + 1] &&
+          sendersList[id] === sendersList[id + 1] ? null : (
+            <MsgSender>{sender}</MsgSender>
+          )}
         </MsgTextContainer>
       </MessageContainer>
     </MessageLi>

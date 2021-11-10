@@ -20,6 +20,11 @@ const chatListReducer = (state = INITAL_STATE, action) => {
         ...state,
         messagesList: Messages,
       };
+    case "SET_MESSAGES":
+      return {
+        ...state,
+        messagesList: action.payload,
+      };
     case "SET_MESSAGES_SENDERS":
       return {
         ...state,
