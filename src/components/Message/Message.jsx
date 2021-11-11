@@ -21,7 +21,8 @@ const Message = ({ sender, content, isRight, time, img, id, sendersList }) => {
         <Thumbnail
           img={img}
           className={`thumbnail ${
-            sendersList[id + 1] && sendersList[id] === sendersList[id + 1]
+            sendersList[id + 1] !== undefined &&
+            sendersList[id] === sendersList[id + 1]
               ? "visi-hidden"
               : null
           }`}
@@ -34,7 +35,7 @@ const Message = ({ sender, content, isRight, time, img, id, sendersList }) => {
               <span className="u-vertical-align">{time}</span>
             </ChatTime>
           </div>
-          {sendersList[id + 1] &&
+          {sendersList[id + 1] !== undefined &&
           sendersList[id] === sendersList[id + 1] ? null : (
             <MsgSender>{sender}</MsgSender>
           )}

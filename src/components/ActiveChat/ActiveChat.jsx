@@ -9,9 +9,14 @@ import { RightCenter, MessagesUl } from "./ActiveChat.styles";
 import Message from "../Message/Message";
 
 const ActiveChat = ({ Messages, setMessagesSenders }) => {
+  const messagesEndRef = React.createRef();
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   useEffect(() => {
-    console.log(Messages);
+    //console.log(Messages);
     setMessagesSenders(Messages.map((msg, index) => msg.received));
+    scrollToBottom();
   }, [Messages]);
   return (
     <RightCenter>
@@ -19,6 +24,7 @@ const ActiveChat = ({ Messages, setMessagesSenders }) => {
         {Messages.map((Msg, index) => {
           return <Message key={index} {...Msg} id={index} />;
         })}
+        <div ref={messagesEndRef} />
       </MessagesUl>
     </RightCenter>
   );

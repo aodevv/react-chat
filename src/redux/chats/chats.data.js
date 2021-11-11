@@ -102,4 +102,12 @@ export const Messages = [
     img: null,
     received: false,
   },
+  {
+    sender: "Lalo Salamnca",
+    content: "Hey thereeeeeee!",
+    isRight: true,
+    time: "00:43",
+    img: null,
+    received: false,
+  },
 ];
