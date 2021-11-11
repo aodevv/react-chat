@@ -25,3 +25,8 @@ export const setChats = (chats) => ({
   type: "SET_CHATS",
   payload: chats,
 });
+
+export const toggleActiveChats = (activeChats) => ({
+  type: "TOGGLE_ACTIVE_CHATS",
+  payload: activeChats,
+});

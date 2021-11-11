@@ -9,10 +9,29 @@ import Thumbnail from "../Thumbnail/Thumbnail";
 import { HeadingSecendary } from "../utils/Heading/Headings";
 import { Badge } from "../utils/Badge/Badge.styles";
 
-const ChatItem = ({ name, lastMessage, img, status, time, unread, active }) => {
+const ChatItem = ({
+  name,
+  lastMessage,
+  img,
+  status,
+  time,
+  unread,
+  active,
+  index,
+  id,
+  setActiveChats,
+  actives,
+}) => {
+  const newActives = actives.map((active, idx) => (index === idx ? 1 : 0));
+  const setActive = () => {
+    if (JSON.stringify(actives) === JSON.stringify(newActives)) {
+      return;
+    }
+    setActiveChats(newActives);
+  };
   return (
     <li>
-      <ChatItemContainer isActive={active}>
+      <ChatItemContainer isActive={active} onClick={setActive}>
         <Thumbnail className="u-mr-s" img={img} isBig={false} status={status} />
         <ChatContent>
           <HeadingSecendary className="u-mb-xs" text={name} isBig={true} />

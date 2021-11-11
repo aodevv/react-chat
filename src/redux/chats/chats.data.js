@@ -1,39 +1,39 @@
 export const Chats = [
   {
+    id: "cnv1",
     name: "Lalo Salamanca",
     lastMessage: "Helloooo",
     img: null,
     status: "online",
     time: "02:40",
     unread: 0,
-    active: true,
   },
   {
+    id: "cnv2",
     name: "Jorge De Guzmàn",
     lastMessage: "okay sure",
     img: null,
     status: "away",
     time: "12:40",
     unread: 3,
-    active: false,
   },
   {
+    id: "cnv3",
     name: "Lalo Salamanca",
     lastMessage: "Helloooo",
     img: null,
     status: "online",
     time: "02:40",
     unread: 0,
-    active: false,
   },
   {
+    id: "cnv4",
     name: "Lalo Salamanca",
     lastMessage: "Helloooo",
     img: null,
     status: "online",
     time: "02:40",
     unread: 0,
-    active: false,
   },
 ];
 

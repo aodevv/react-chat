@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 import {
@@ -11,12 +11,25 @@ import { setActiveChats } from "../../redux/chats/chats.actions";
 import { ChatListContainer } from "./ChatList.styles";
 import ChatItem from "../ChatItem/ChatItem";
 
-const ChatList = ({ chats, actives }) => {
+const ChatList = ({ chats, actives, setActiveChats }) => {
   console.log(chats);
+  useEffect(() => {
+    setActiveChats(chats.map((chat) => 0));
+    //setActiveChats([0, 1, 0, 0]);
+  }, []);
   return (
     <ChatListContainer>
       {chats.map((item, index) => {
-        return <ChatItem key={index} {...item} />;
+        return (
+          <ChatItem
+            key={index}
+            {...item}
+            index={index}
+            actives={actives}
+            active={!!actives[index]}
+            setActiveChats={setActiveChats}
+          />
+        );
       })}
     </ChatListContainer>
   );
