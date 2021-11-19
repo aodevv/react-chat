@@ -5,13 +5,24 @@ import { createStructuredSelector } from "reselect";
 import {
   setMessages,
   setMessagesSenders,
+  setCurrentMessages,
 } from "../../redux/chats/chats.actions";
-import { selectMessages } from "../../redux/chats/chats.selectors";
+import {
+  selectMessages,
+  selectCurrentConversation,
+  selectAllMessages,
+} from "../../redux/chats/chats.selectors";
 
 import { Form, FormContainer, SendButton } from "./SendForm.styles";
 import { SearchInputStyled } from "../SearchInput/SearchInput.styles";
 
-const SenfForm = ({ messages, setMessages, setMessagesSenders }) => {
+const SenfForm = ({
+  messages,
+  setMessages,
+  setMessagesSenders,
+  convId,
+  allMessages,
+}) => {
   const [message, setMessage] = useState("");
   const formatTime = (str) => {
     return str.length === 1 ? "0" + str : str;
@@ -31,7 +42,19 @@ const SenfForm = ({ messages, setMessages, setMessagesSenders }) => {
     setMessagesSenders(
       [...messages, newMessage].map((msg, index) => msg.received)
     );
-    setMessages([...messages, newMessage]);
+    const newMessagesList = [...messages, newMessage];
+    setCurrentMessages([...messages, newMessage]);
+    console.log(newMessagesList);
+    const newAllMessages = allMessages.map((conv, id) => {
+      console.log(id, convId);
+      if (id === convId) {
+        return newMessagesList;
+      } else {
+        return conv;
+      }
+    });
+    setMessages(newAllMessages);
+    console.log(newAllMessages);
 
     setMessage("");
   };
@@ -40,7 +63,7 @@ const SenfForm = ({ messages, setMessages, setMessagesSenders }) => {
       <Form onSubmit={handleSubmit}>
         <div className="input">
           <SearchInputStyled
-            placeholder="Boba"
+            placeholder="Type message..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
@@ -56,7 +79,9 @@ const SenfForm = ({ messages, setMessages, setMessagesSenders }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
+  allMessages: selectAllMessages,
   messages: selectMessages,
+  convId: selectCurrentConversation,
 });
 
 const mapDispatchToProps = (dispatch) => ({

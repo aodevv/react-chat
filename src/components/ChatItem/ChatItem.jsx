@@ -20,7 +20,10 @@ const ChatItem = ({
   index,
   id,
   setActiveChats,
+  setActiveConversation,
+  getMessages,
   actives,
+  messages,
 }) => {
   const newActives = actives.map((active, idx) => (index === idx ? 1 : 0));
   const setActive = () => {
@@ -28,6 +31,9 @@ const ChatItem = ({
       return;
     }
     setActiveChats(newActives);
+    setActiveConversation(index);
+    console.log(index);
+    getMessages(messages[index]);
   };
   return (
     <li>

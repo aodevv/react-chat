@@ -5,7 +5,9 @@ const INITAL_STATE = {
   chatList: [],
   activeList: [],
   messagesList: [],
+  currentMessages: [],
   messagesSenders: [],
+  currentConversation: null,
 };
 
 const chatListReducer = (state = INITAL_STATE, action) => {
@@ -15,15 +17,25 @@ const chatListReducer = (state = INITAL_STATE, action) => {
         ...state,
         chatList: Chats,
       };
-    case "GET_MESSAGES":
+    case "GET_ALL_MESSAGES":
       return {
         ...state,
         messagesList: Messages,
+      };
+    case "GET_MESSAGES":
+      return {
+        ...state,
+        currentMessages: action.payload,
       };
     case "SET_MESSAGES":
       return {
         ...state,
         messagesList: action.payload,
+      };
+    case "SET_CURRENT_MESSAGES":
+      return {
+        ...state,
+        currentMessages: action.payload,
       };
     case "SET_MESSAGES_SENDERS":
       return {
@@ -39,6 +51,11 @@ const chatListReducer = (state = INITAL_STATE, action) => {
       return {
         ...state,
         chatList: action.payload,
+      };
+    case "SET_ACTIVE_CONVERSATION":
+      return {
+        ...state,
+        currentConversation: action.payload,
       };
     default:
       return state;

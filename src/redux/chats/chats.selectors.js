@@ -9,6 +9,11 @@ export const selectCurrentChats = createSelector(
 
 export const selectMessages = createSelector(
   [selectChats],
+  (chats) => chats.currentMessages
+);
+
+export const selectAllMessages = createSelector(
+  [selectChats],
   (chats) => chats.messagesList
 );
 
@@ -25,4 +30,9 @@ export const selectActiveList = createSelector(
 export const selectSearchChats = createSelector(
   [selectChats],
   (chats) => chats.searchChats
+);
+
+export const selectCurrentConversation = createSelector(
+  [selectChats],
+  (chats) => chats.currentConversation
 );

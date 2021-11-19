@@ -18,7 +18,7 @@ export const ImgContainer = styled.div`
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  background-color: rgba(45, 45, 255, 0.699);
+  background-color: var(--color-primary-light);
   position: relative;
 
   img {
@@ -37,7 +37,7 @@ export const ThumbnailContainer = styled.div`
   ${({ isBig }) => (isBig ? `width: 8.6rem; height: 8.6rem;` : null)}
   border-radius: 50%;
   position: relative;
-  background-color: rgba(45, 45, 255, 0.699);
+  background-color: var(--color-primary-light);
   position: relative;
 
   span {

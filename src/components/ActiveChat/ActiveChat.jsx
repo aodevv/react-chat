@@ -15,15 +15,19 @@ const ActiveChat = ({ Messages, setMessagesSenders }) => {
   };
   useEffect(() => {
     //console.log(Messages);
-    setMessagesSenders(Messages.map((msg, index) => msg.received));
-    scrollToBottom();
+    if (Messages) {
+      setMessagesSenders(Messages.map((msg, index) => msg.received));
+      scrollToBottom();
+    }
   }, [Messages]);
   return (
     <RightCenter>
       <MessagesUl>
-        {Messages.map((Msg, index) => {
-          return <Message key={index} {...Msg} id={index} />;
-        })}
+        {Messages
+          ? Messages.map((Msg, index) => {
+              return <Message key={index} {...Msg} id={index} />;
+            })
+          : null}
         <div ref={messagesEndRef} />
       </MessagesUl>
     </RightCenter>
