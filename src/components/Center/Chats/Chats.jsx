@@ -11,7 +11,11 @@ const Chats = () => {
     <div>
       <ChatsTop>
         <HeadingPrimary text="Chats" className="u-mb-s" />
-        <SearchInput placeholder="Search Chats" className="u-mb-s" />
+        <SearchInput
+          placeholder="Search Chats"
+          className="u-mb-s"
+          type="1to1"
+        />
         <FriendsCarousel />
       </ChatsTop>
       <ChatsBottom>

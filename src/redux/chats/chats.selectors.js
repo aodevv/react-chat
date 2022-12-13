@@ -7,6 +7,11 @@ export const selectCurrentChats = createSelector(
   (chats) => chats.chatList
 );
 
+export const selectCurrentGroupChats = createSelector(
+  [selectChats],
+  (chats) => chats.groupChatList
+);
+
 export const selectMessages = createSelector(
   [selectChats],
   (chats) => chats.currentMessages

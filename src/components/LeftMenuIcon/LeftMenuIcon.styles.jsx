@@ -24,10 +24,11 @@ export const IconContainer = styled.li`
   align-items: center;
   justify-content: center;
   margin: 0.7rem 0px;
+  cursor: pointer;
+
   a {
     text-decoration: none;
     color: var(--color-grey-light-1);
-    cursor: pointer;
     i {
       display: flex;
       align-items: center;

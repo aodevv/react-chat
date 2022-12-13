@@ -5,6 +5,8 @@ import { createStructuredSelector } from "reselect";
 
 import Profil from "../../components/Center/Profil/Profil";
 import Chats from "../../components/Center/Chats/Chats";
+import Groups from "../../components/Center/Groups/Groups";
+import Settings from "../../components/Center/Settings/Settings";
 
 import { selectIds } from "../../redux/leftMenu/LeftMenu.selectors";
 
@@ -17,6 +19,10 @@ const Center = ({ ids }) => {
         return <Profil />;
       case 1:
         return <Chats />;
+      case 2:
+        return <Groups />;
+      case 3:
+        return <Settings />;
       default:
         return null;
     }

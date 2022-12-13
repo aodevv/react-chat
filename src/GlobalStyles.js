@@ -5,6 +5,14 @@ export const GlobalStyles = createGlobalStyle`
   text-align: center !important;
 }
 
+.u-dflex{
+  display: flex;
+}
+
+.u-jcsb{
+  justify-content: space-between;
+}
+
 .u-mt-l {
   margin-top: 8rem !important;
 }
@@ -18,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 .u-mt-xs {
-  margin-top: 0.4rem !important;
+  margin-top: 1rem !important;
 }
 
 .u-mb-l {
@@ -51,6 +59,22 @@ export const GlobalStyles = createGlobalStyle`
 
 .u-mr-xs {
   margin-right: 0.4rem !important;
+}
+
+.u-ml-l {
+  margin-left: 8rem !important;
+}
+
+.u-ml-m {
+  margin-left: 4rem !important;
+}
+
+.u-ml-s {
+  margin-left: 1.6rem !important;
+}
+
+.u-ml-xs {
+  margin-left: 0.4rem !important;
 }
 
 .u-px-1 {

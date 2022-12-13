@@ -2,6 +2,10 @@ export const getChats = () => ({
   type: "GET_CHATS",
 });
 
+export const getGroupChats = () => ({
+  type: "GET_GROUPCHATS",
+});
+
 export const getMessages = (currentMessages) => ({
   type: "GET_MESSAGES",
   payload: currentMessages,
@@ -33,6 +37,11 @@ export const setActiveChats = (list) => ({
 
 export const setChats = (chats) => ({
   type: "SET_CHATS",
+  payload: chats,
+});
+
+export const setGroupChats = (chats) => ({
+  type: "SET_GROUPCHATS",
   payload: chats,
 });
 

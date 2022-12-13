@@ -2,8 +2,11 @@
   width: 38.8rem;
   background: var(--color-grey-purple);
   overflow: hidden;
+  height: 100vh;
 
   &__container {
     position: relative;
+    // width: 100%;
+    height: 100%;
   }
 }

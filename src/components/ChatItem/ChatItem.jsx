@@ -31,7 +31,7 @@ const ChatItem = ({
       return;
     }
     setActiveChats(newActives);
-    setActiveConversation(index);
+    setActiveConversation(id);
     console.log(index);
     getMessages(messages[index]);
   };

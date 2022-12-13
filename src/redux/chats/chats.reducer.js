@@ -1,13 +1,14 @@
-import { Chats } from "./chats.data";
+import { Chats, groupChats } from "./chats.data";
 import { Messages } from "./chats.data";
 
 const INITAL_STATE = {
   chatList: [],
+  groupChatList: [],
   activeList: [],
   messagesList: [],
   currentMessages: [],
   messagesSenders: [],
-  currentConversation: null,
+  currentConversation: "cnv1",
 };
 
 const chatListReducer = (state = INITAL_STATE, action) => {
@@ -16,6 +17,11 @@ const chatListReducer = (state = INITAL_STATE, action) => {
       return {
         ...state,
         chatList: Chats,
+      };
+    case "GET_GROUPCHATS":
+      return {
+        ...state,
+        groupChatList: groupChats,
       };
     case "GET_ALL_MESSAGES":
       return {
@@ -51,6 +57,11 @@ const chatListReducer = (state = INITAL_STATE, action) => {
       return {
         ...state,
         chatList: action.payload,
+      };
+    case "SET_GROUPCHATS":
+      return {
+        ...state,
+        groupChatList: action.payload,
       };
     case "SET_ACTIVE_CONVERSATION":
       return {

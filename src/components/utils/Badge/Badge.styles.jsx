@@ -31,4 +31,13 @@ export const Badge = styled.span`
         align-items: center;
       `
       : null}
+
+${({ centered }) =>
+    centered
+      ? `
+        
+        top: 50%;
+        transform: translate(-50%, -50%);
+      `
+      : null}
 `;

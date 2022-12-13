@@ -1,7 +1,7 @@
 export const Chats = [
   {
     id: "cnv1",
-    name: "Lalo Salamanca",
+    name: "Jorge de Guzman",
     lastMessage: "Helloooo",
     img: null,
     status: "online",
@@ -10,7 +10,7 @@ export const Chats = [
   },
   {
     id: "cnv2",
-    name: "Jorge De Guzmàn",
+    name: "Lalo Salamanca",
     lastMessage: "okay sure",
     img: null,
     status: "away",
@@ -19,7 +19,7 @@ export const Chats = [
   },
   {
     id: "cnv3",
-    name: "Lalo Salamanca",
+    name: "Nacho De Varga",
     lastMessage: "Helloooo",
     img: null,
     status: "online",
@@ -28,12 +28,36 @@ export const Chats = [
   },
   {
     id: "cnv4",
-    name: "Lalo Salamanca",
+    name: "Gus",
     lastMessage: "Helloooo",
     img: null,
     status: "online",
     time: "02:40",
     unread: 0,
+  },
+];
+
+export const groupChats = [
+  {
+    id: "grp1",
+    name: "General",
+    unread: 0,
+  },
+  {
+    id: "grp2",
+    name: "Fun",
+    unread: 1,
+  },
+  {
+    id: "grp3",
+    name: "Discovery",
+    lastMessage: "Helloooo",
+    unread: 4,
+  },
+  {
+    id: "grp4",
+    name: "Meetings",
+    unread: 2,
   },
 ];
 
@@ -48,7 +72,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Jorge de Guzman",
+      sender: "Ana",
       content: "how are you ?",
       isRight: true,
       time: "00:42",
@@ -56,7 +80,7 @@ export const Messages = [
       received: false,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Jorge de Guzman",
       content: "Trgud b alf ?",
       isRight: false,
       time: "00:42",
@@ -64,7 +88,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Jorge de Guzman",
       content: "Do you need any help?",
       isRight: false,
       time: "00:42",
@@ -72,7 +96,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Jorge de Guzman",
+      sender: "Ana",
       content: "laaaa",
       isRight: true,
       time: "00:42",
@@ -80,7 +104,7 @@ export const Messages = [
       received: false,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Jorge de Guzman",
       content: "Jacketa nadya",
       isRight: false,
       time: "00:42",
@@ -88,7 +112,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Jorge de Guzman",
       content: "Colonel Oundroskots",
       isRight: false,
       time: "00:42",
@@ -96,7 +120,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Jorge de Guzman",
+      sender: "Ana",
       content: "L'armée au Maroc",
       isRight: true,
       time: "00:42",
@@ -104,7 +128,7 @@ export const Messages = [
       received: false,
     },
     {
-      sender: "Jorge de Guzman",
+      sender: "Ana",
       content: "3aynek njbdha lik anaya!!!!",
       isRight: true,
       time: "00:43",
@@ -122,7 +146,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Ana",
       content: "hi",
       isRight: true,
       time: "00:42",
@@ -146,7 +170,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Ana",
       content: "Hello",
       isRight: true,
       time: "00:42",
@@ -170,7 +194,7 @@ export const Messages = [
       received: true,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Ana",
       content: "Hey there!",
       isRight: true,
       time: "00:42",
@@ -178,7 +202,7 @@ export const Messages = [
       received: false,
     },
     {
-      sender: "Lalo Salamnca",
+      sender: "Ana",
       content: "Hey thereeeeeee!",
       isRight: true,
       time: "00:43",
@@ -186,4 +210,6 @@ export const Messages = [
       received: false,
     },
   ],
+  [],
+  [],
 ];

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -20,6 +20,7 @@ const SenfForm = ({
   messages,
   setMessages,
   setMessagesSenders,
+  setCurrentMessages,
   convId,
   allMessages,
 }) => {
@@ -28,9 +29,10 @@ const SenfForm = ({
     return str.length === 1 ? "0" + str : str;
   };
   const handleSubmit = (e) => {
+    console.log(messages);
     e.preventDefault();
     const newMessage = {
-      sender: "Lalo Salamnca",
+      sender: "Ana",
       content: message,
       isRight: true,
       time: `${formatTime(new Date().getHours())}:${formatTime(
@@ -45,7 +47,8 @@ const SenfForm = ({
     const newMessagesList = [...messages, newMessage];
     setCurrentMessages([...messages, newMessage]);
     console.log(newMessagesList);
-    const newAllMessages = allMessages.map((conv, id) => {
+    const allMessagesCopy = structuredClone(allMessages);
+    const newAllMessages = allMessagesCopy.map((conv, id) => {
       console.log(id, convId);
       if (id === convId) {
         return newMessagesList;
@@ -54,10 +57,19 @@ const SenfForm = ({
       }
     });
     setMessages(newAllMessages);
-    console.log(newAllMessages);
+    console.log([...messages, newMessage]);
+    console.log([newAllMessages]);
+    // console.log(messages);
+    // console.log(newMessage);
+    // console.log(newAllMessages);
 
     setMessage("");
   };
+
+  useEffect(() => {
+    console.log(allMessages);
+  }, []);
+
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit}>
@@ -87,6 +99,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   setMessages: (newMessages) => dispatch(setMessages(newMessages)),
   setMessagesSenders: (list) => dispatch(setMessagesSenders(list)),
+  setCurrentMessages: (messages) => dispatch(setCurrentMessages(messages)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SenfForm);
