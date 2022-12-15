@@ -37,4 +37,11 @@ export const SearchInputStyled = styled.input`
     color: var(--color-grey-dark-2);
     font-family: "Public Sans", sans-serif;
   }
+
+  ${({ inactive }) =>
+    inactive &&
+    `
+      cursor: not-allowed;
+      
+  `}
 `;

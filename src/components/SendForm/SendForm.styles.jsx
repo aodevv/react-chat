@@ -32,4 +32,11 @@ export const SendButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  ${({ inactive }) =>
+    inactive &&
+    `
+    cursor: not-allowed;
+    background-color: var(--color-primary-light-disabled);
+  `}
 `;

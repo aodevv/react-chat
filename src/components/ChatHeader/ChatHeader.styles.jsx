@@ -54,4 +54,14 @@ export const ChatHeaderControls = styled.div`
       font-size: 2rem;
     }
   }
+
+  ${({ inactive }) =>
+    inactive &&
+    `
+    opacity: 0.4;
+
+    & > div {
+      cursor: default;
+    }
+  `}
 `;

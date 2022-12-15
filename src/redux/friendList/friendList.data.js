@@ -1,27 +1,27 @@
 export const Friends = [
   {
-    name: "Bob",
+    name: "De Guzman",
     status: "online",
-    img: null,
+    img: "/images/lalosalamanca.jpg",
   },
   {
-    name: "Salamnca",
+    name: "Gus",
     status: "offline",
-    img: null,
-  },
-  {
-    name: "Saad",
-    status: "away",
-    img: null,
-  },
-  {
-    name: "Jesseeeeeeeeee",
-    status: "offline",
-    img: null,
+    img: "/images/gus.png",
   },
   {
     name: "Nacho",
+    status: "away",
+    img: "/images/nacho.jpg",
+  },
+  {
+    name: "Jesse",
     status: "offline",
     img: null,
+  },
+  {
+    name: "Lalo",
+    status: "offline",
+    img: "/images/ll.jpg",
   },
 ];

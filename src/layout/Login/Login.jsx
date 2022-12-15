@@ -5,7 +5,7 @@ import IconInput from "../../components/utils/IconInput/IconInput";
 import { connect } from "react-redux";
 
 import { createStructuredSelector } from "reselect";
-import { login } from "../../redux/leftMenu/LeftMenu.actions";
+import { login } from "../../redux/auth/auth.actions";
 
 import Checkmark from "../../components/utils/Checkmark/Checkmark";
 

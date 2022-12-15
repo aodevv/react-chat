@@ -6,7 +6,7 @@ import PopupMenu from "../utils/PopupMenu/PopupMenu";
 
 import { connect } from "react-redux";
 import { toggleActive } from "../../redux/leftMenu/LeftMenu.actions";
-import { logout } from "../../redux/leftMenu/LeftMenu.actions";
+import { logout } from "../../redux/auth/auth.actions";
 
 import Oussama from "../../assets/oussama.jpg";
 

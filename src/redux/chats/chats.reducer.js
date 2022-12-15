@@ -8,7 +8,7 @@ const INITAL_STATE = {
   messagesList: [],
   currentMessages: [],
   messagesSenders: [],
-  currentConversation: "cnv1",
+  currentConversation: "",
 };
 
 const chatListReducer = (state = INITAL_STATE, action) => {

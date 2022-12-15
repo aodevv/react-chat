@@ -23,47 +23,52 @@ const SenfForm = ({
   setCurrentMessages,
   convId,
   allMessages,
+  inactive,
 }) => {
   const [message, setMessage] = useState("");
   const formatTime = (str) => {
     return str.length === 1 ? "0" + str : str;
   };
   const handleSubmit = (e) => {
-    console.log(messages);
     e.preventDefault();
-    const newMessage = {
-      sender: "Ana",
-      content: message,
-      isRight: true,
-      time: `${formatTime(new Date().getHours())}:${formatTime(
-        new Date().getMinutes()
-      )}`,
-      img: null,
-      received: false,
-    };
-    setMessagesSenders(
-      [...messages, newMessage].map((msg, index) => msg.received)
-    );
-    const newMessagesList = [...messages, newMessage];
-    setCurrentMessages([...messages, newMessage]);
-    console.log(newMessagesList);
-    const allMessagesCopy = structuredClone(allMessages);
-    const newAllMessages = allMessagesCopy.map((conv, id) => {
-      console.log(id, convId);
-      if (id === convId) {
-        return newMessagesList;
-      } else {
-        return conv;
-      }
-    });
-    setMessages(newAllMessages);
-    console.log([...messages, newMessage]);
-    console.log([newAllMessages]);
-    // console.log(messages);
-    // console.log(newMessage);
-    // console.log(newAllMessages);
+    if (!inactive) {
+      const newMessage = {
+        sender: "Ana",
+        content: message,
+        isRight: true,
+        time: `${formatTime(new Date().getHours())}:${formatTime(
+          new Date().getMinutes()
+        )}`,
+        img: "/images/oussama.jpg",
+        received: false,
+      };
+      setMessagesSenders(
+        [...messages, newMessage].map((msg, index) => msg.received)
+      );
+      const newMessagesList = [...messages, newMessage];
+      setCurrentMessages([...messages, newMessage]);
+      console.log(newMessagesList);
+      const allMessagesCopy = structuredClone(allMessages);
+      const newAllMessages = allMessagesCopy.map((conv, id) => {
+        console.log(id, convId);
+        if (id === convId) {
+          return newMessagesList;
+        } else {
+          return conv;
+        }
+      });
+      setMessages(newAllMessages);
 
-    setMessage("");
+      setMessage("");
+    }
+  };
+
+  const handleInput = (e) => {
+    if (inactive) {
+      e.preventDefault();
+    } else {
+      setMessage(e.target.value);
+    }
   };
 
   useEffect(() => {
@@ -72,16 +77,18 @@ const SenfForm = ({
 
   return (
     <FormContainer>
-      <Form onSubmit={handleSubmit}>
+      <Form inactive={inactive} onSubmit={handleSubmit}>
         <div className="input">
           <SearchInputStyled
+            inactive={inactive}
             placeholder="Type message..."
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            disabled={inactive}
+            onChange={handleInput}
           />
         </div>
         <div className="btn">
-          <SendButton>
+          <SendButton inactive={inactive}>
             <i className="ri-send-plane-2-fill"></i>
           </SendButton>
         </div>

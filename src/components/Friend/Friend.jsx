@@ -9,7 +9,13 @@ const Friend = ({ name, status, img }) => {
   return (
     <FriendLi>
       <FriendLiThumbnail>
-        <Thumbnail img={img} isBig={false} status={status} />
+        <Thumbnail
+          img={img}
+          isGroup={img === null ? true : false}
+          isBig={false}
+          name={name}
+          status={status}
+        />
       </FriendLiThumbnail>
       <HeadingSecendary text={name} />
     </FriendLi>

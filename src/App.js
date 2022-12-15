@@ -8,7 +8,7 @@ import Login from "./layout/Login/Login";
 import { connect } from "react-redux";
 
 import { createStructuredSelector } from "reselect";
-import { selectLoggedIn } from "./redux/leftMenu/LeftMenu.selectors";
+import { selectLoggedIn } from "./redux/auth/auth.selectors";
 
 import { getFriends } from "./redux/friendList/friendList.actions";
 import {

@@ -16,23 +16,29 @@ import "./Right.scss";
 const Right = ({ convId, chatList }) => {
   const [curName, setCurName] = useState("");
   const [curStatus, setCurStatus] = useState("");
-
-  console.log(chatList);
-  console.log(convId);
+  const [curImg, setCurImg] = useState(null);
+  const [inactive, setInactive] = useState(true);
 
   useEffect(() => {
     const found = chatList.find((chat) => chat.id === convId);
     if (found) {
+      setInactive(false);
       setCurName(found.name);
       setCurStatus(found.status);
+      setCurImg(found.img);
     } else setCurName("");
   });
 
   return (
     <div className="Right">
-      <ChatHeader img={null} status={curStatus} name={curName} />
-      <ActiveChat />
-      <SenfForm />
+      <ChatHeader
+        inactive={inactive}
+        img={curImg}
+        status={curStatus}
+        name={curName}
+      />
+      <ActiveChat inactive={inactive} />
+      <SenfForm inactive={inactive} />
     </div>
   );
 };

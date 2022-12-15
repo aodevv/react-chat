@@ -65,6 +65,12 @@ export const ThumbnailContainer = styled.div`
     z-index: 3;
     border: 2px solid white;
   }
+
+  ${({ inactive }) =>
+    inactive &&
+    `
+    opacity: 0;
+  `}
 `;
 
 export const ThumbnailButton = styled.div`

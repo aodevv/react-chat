@@ -10,6 +10,7 @@ const textLeft = css`
 
     &::after {
       left: 0;
+      top: 99%;
       clip-path: polygon(100% 0, 0 0, 0 100%);
       background-color: var(--color-primary-light);
     }

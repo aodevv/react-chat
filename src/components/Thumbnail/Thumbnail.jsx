@@ -14,6 +14,7 @@ const Thumbnail = ({
   withButton,
   isGroup,
   name,
+  inactive,
 }) => {
   return (
     <ThumbnailContainer
@@ -21,6 +22,7 @@ const Thumbnail = ({
       isGroup={isGroup}
       firstLetter={name}
       className={className}
+      inactive={inactive}
     >
       {isGroup ? <p className="group-letter">{name.charAt(0)}</p> : null}
       {img ? (

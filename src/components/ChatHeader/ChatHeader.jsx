@@ -10,7 +10,7 @@ import {
 
 import PopupMenu from "../utils/PopupMenu/PopupMenu";
 
-const ChatHeader = ({ img, status, name }) => {
+const ChatHeader = ({ img, status, name, inactive }) => {
   const menuRef = useRef();
   const btnRef = useRef();
 
@@ -33,11 +33,17 @@ const ChatHeader = ({ img, status, name }) => {
   return (
     <ChatHeaderContainer>
       <ChatHeaderName>
-        <Thumbnail isBig={false} img={img} status={false} className="u-mr-s" />
+        <Thumbnail
+          isBig={false}
+          img={img}
+          status={false}
+          inactive={inactive}
+          className="u-mr-s"
+        />
         <HeadingSecendary text={name} isBig={true} className="u-mr-xs" />
-        <Badge status={status} />
+        <Badge inactive={inactive} status={status} />
       </ChatHeaderName>
-      <ChatHeaderControls>
+      <ChatHeaderControls inactive={inactive}>
         <div>
           <i className="ri-search-line" />
         </div>
@@ -51,7 +57,12 @@ const ChatHeader = ({ img, status, name }) => {
           <i className="ri-user-2-line" />
         </div>
         <div className="chat-options">
-          <div ref={btnRef} onClick={() => setIsClose(!isClose)}>
+          <div
+            ref={btnRef}
+            onClick={() => {
+              if (!inactive) setIsClose(!isClose);
+            }}
+          >
             <i className="ri-more-fill" />
           </div>
           <PopupMenu

@@ -40,4 +40,8 @@ ${({ centered }) =>
         transform: translate(-50%, -50%);
       `
       : null}
+
+${({ inactive }) => `
+  opacity: 0;
+`}
 `;
