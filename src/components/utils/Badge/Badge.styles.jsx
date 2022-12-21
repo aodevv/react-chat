@@ -41,7 +41,9 @@ ${({ centered }) =>
       `
       : null}
 
-${({ inactive }) => `
+${({ inactive }) =>
+    inactive &&
+    `
   opacity: 0;
 `}
 `;

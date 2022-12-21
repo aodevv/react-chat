@@ -11,9 +11,9 @@ import {
   ProfilContainer,
   ProfilContainerHeader,
   ProfilInfo,
-  ProfilStatus,
-  ProfilDescription,
 } from "../Profil/Profil.styles";
+
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
 
 import {
   StatusControl,
@@ -22,7 +22,7 @@ import {
   PrivacyControl,
   DropdownContainer,
 } from "./Settings.styles";
-import { Badge } from "../../utils/Badge/Badge.styles";
+// import { Badge } from "../../utils/Badge/Badge.styles";
 
 import ana from "../../../assets/oussama.jpg";
 
@@ -35,11 +35,13 @@ const Settings = () => {
 
   useEffect(() => {
     let closeDropdown = (e) => {
-      if (
-        !menuRef.current.contains(e.target) &&
-        !statusRef.current.contains(e.target)
-      )
-        setIsClose(true);
+      if (!isClose) {
+        if (
+          !menuRef.current.contains(e.target) &&
+          !statusRef.current.contains(e.target)
+        )
+          setIsClose(true);
+      }
     };
     document.addEventListener("mousedown", closeDropdown);
 
@@ -56,7 +58,7 @@ const Settings = () => {
         <Thumbnail isBig={true} img={ana} withButton />
         <HeadingSecendary
           isBig={true}
-          text="Lalo Salamanca"
+          text="Aimarah Oussama"
           className="u-mb-xs u-mt-s"
         />
         <StatusControlContainer>
@@ -64,10 +66,31 @@ const Settings = () => {
             <p className="text-muted">{status}</p>
             <i className="ri-arrow-drop-right-line"></i>
           </StatusControl>
-          <PopupMenu elRef={menuRef} closeState={isClose}>
-            <li>Available</li>
-            <li>Busy</li>
-          </PopupMenu>
+          <AnimatePresence>
+            {!isClose && (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  zIndex: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  zIndex: 30,
+                }}
+                exit={{
+                  opacity: 0,
+                  zIndex: 30,
+                }}
+                transition={{ duration: 0.4 }}
+                ref={menuRef}
+              >
+                <PopupMenu>
+                  <li>Available</li>
+                  <li>Busy</li>
+                </PopupMenu>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </StatusControlContainer>
       </ProfilInfo>
       <DropdownContainer>

@@ -5,6 +5,8 @@ import Thumbnail from "../../Thumbnail/Thumbnail";
 import Dropdown from "../../Dropdown/Dropdown";
 import PopupMenu from "../../utils/PopupMenu/PopupMenu";
 
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+
 import {
   ProfilContainer,
   ProfilContainerHeader,
@@ -23,11 +25,13 @@ const Profil = () => {
 
   useEffect(() => {
     let closeDropdown = (e) => {
-      if (
-        !menuRef.current.contains(e.target) &&
-        !dotsRef.current.contains(e.target)
-      )
-        setIsClose(true);
+      if (!isClose) {
+        if (
+          !menuRef.current.contains(e.target) &&
+          !dotsRef.current.contains(e.target)
+        )
+          setIsClose(true);
+      }
     };
     document.addEventListener("mousedown", closeDropdown);
 
@@ -44,12 +48,40 @@ const Profil = () => {
           <div ref={dotsRef} onClick={() => setIsClose(!isClose)}>
             <i className="ri-more-2-fill"></i>
           </div>
-          <PopupMenu elRef={menuRef} closeState={isClose}>
-            <li>Edit</li>
-            <li>Action</li>
-            <div className="divider" />
-            <li>Another action</li>
-          </PopupMenu>
+          <AnimatePresence>
+            {!isClose && (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  position: "absolute",
+                  right: 0,
+                  zIndex: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  position: "absolute",
+                  right: 0,
+                  zIndex: 30,
+                }}
+                exit={{
+                  opacity: 0,
+                  position: "absolute",
+                  right: 0,
+                  zIndex: 30,
+                }}
+                transition={{ duration: 0.4 }}
+                ref={menuRef}
+              >
+                <PopupMenu closeState={isClose}>
+                  <li>Edit</li>
+                  <li>Action</li>
+                  <div className="divider" />
+                  <li>Another action</li>
+                </PopupMenu>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {/* <div
             ref={menuRef}
             className={`profile-actions__dropdown ${isClose ? "close" : ""}`}
@@ -67,7 +99,7 @@ const Profil = () => {
         <Thumbnail isBig={true} img={ana} withButton={false} />
         <HeadingSecendary
           isBig={true}
-          text="Lalo Salamanca"
+          text="Aimarah Oussama"
           className="u-mb-xs u-mt-s"
         />
         <ProfilStatus>

@@ -12,7 +12,7 @@ const PopupMenuContainer = styled.div`
   color: black;
   border-radius: 0.5rem;
   border: 1px solid var(--bs-border-color);
-  z-index: 3;
+  z-index: 30;
   background-color: white;
   box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
 
@@ -36,12 +36,9 @@ const PopupMenuContainer = styled.div`
   }
 `;
 
-const PopupMenu = ({ elRef, closeState, children, className }) => {
+const PopupMenu = ({ elRef, children, className }) => {
   return (
-    <PopupMenuContainer
-      ref={elRef}
-      className={`${className} ${closeState ? "close" : ""}`}
-    >
+    <PopupMenuContainer ref={elRef} className={`${className}`}>
       <ul>{children}</ul>
     </PopupMenuContainer>
   );

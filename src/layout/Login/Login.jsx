@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
+import logo from "../../assets/aodev-logo-md.png";
 import IconInput from "../../components/utils/IconInput/IconInput";
 
 import { connect } from "react-redux";
 
-import { createStructuredSelector } from "reselect";
 import { login } from "../../redux/auth/auth.actions";
 
 import Checkmark from "../../components/utils/Checkmark/Checkmark";
 
 import "./Login.scss";
 
-const Login = ({ setLoggedIn, login }) => {
+const Login = ({ login }) => {
   const [username, setUsername] = useState("email@email.com");
   const [password, setPassword] = useState("azertyuiop");
   const [rememberMe, setRememberMe] = useState(false);
@@ -27,10 +27,12 @@ const Login = ({ setLoggedIn, login }) => {
 
   return (
     <div className="login">
-      <div className="login-logo">{`{Logo}`}</div>
+      <div className="login-logo">
+        <img src={logo} alt="logo" />
+      </div>
       <div className="login__header">
         <h4>Sign in</h4>
-        <p>Sign in to continue to Chatvia</p>
+        <p>Sign in to continue to the chat app</p>
       </div>
       <div className="login-form__container">
         <IconInput
@@ -69,8 +71,7 @@ const Login = ({ setLoggedIn, login }) => {
           Don't have an account ? <a href="#">Signup now</a>
         </p>
         <p className="u-mb-l">
-          © 2022 Chatvia. Crafted with <i className="ri-heart-fill" /> by
-          Oussama
+          © 2022 AoDev. Crafted with <i className="ri-heart-fill" /> by Oussama
         </p>
       </div>
     </div>

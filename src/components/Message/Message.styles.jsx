@@ -65,10 +65,12 @@ export const MessageContainer = styled.div`
 
 export const MsgTextContainer = styled.div`
   .msg-content {
+    max-width: 400px;
     padding: 1.2rem 2rem;
     position: relative;
     margin-bottom: 1rem;
     display: inline-block;
+    overflow-wrap: break-word;
 
     p {
       font-size: 1.5rem;

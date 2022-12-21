@@ -33,7 +33,7 @@ const SenfForm = ({
     e.preventDefault();
     if (!inactive) {
       const newMessage = {
-        sender: "Ana",
+        sender: "You",
         content: message,
         isRight: true,
         time: `${formatTime(new Date().getHours())}:${formatTime(

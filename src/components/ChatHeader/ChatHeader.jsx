@@ -8,6 +8,8 @@ import {
   ChatHeaderControls,
 } from "./ChatHeader.styles";
 
+import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+
 import PopupMenu from "../utils/PopupMenu/PopupMenu";
 
 const ChatHeader = ({ img, status, name, inactive }) => {
@@ -18,11 +20,13 @@ const ChatHeader = ({ img, status, name, inactive }) => {
 
   useEffect(() => {
     let closeDropdown = (e) => {
-      if (
-        !menuRef.current.contains(e.target) &&
-        !btnRef.current.contains(e.target)
-      )
-        setIsClose(true);
+      if (!isClose) {
+        if (
+          !menuRef.current.contains(e.target) &&
+          !btnRef.current.contains(e.target)
+        )
+          setIsClose(true);
+      }
     };
     document.addEventListener("mousedown", closeDropdown);
 
@@ -65,24 +69,32 @@ const ChatHeader = ({ img, status, name, inactive }) => {
           >
             <i className="ri-more-fill" />
           </div>
-          <PopupMenu
-            elRef={menuRef}
-            className="chat-options__ul"
-            closeState={isClose}
-          >
-            <li className="chat-options__el">
-              <span>Archive</span>
-              <i className="ri-archive-line" />
-            </li>
-            <li className="chat-options__el">
-              <span>Muted</span>
-              <i className="ri-volume-mute-line" />
-            </li>
-            <li className="chat-options__el">
-              <span>Delete</span>
-              <i className="ri-delete-bin-line" />
-            </li>
-          </PopupMenu>
+          <AnimatePresence>
+            {!isClose && (
+              <motion.div
+                initial={{ opacity: 0, zIndex: 30 }}
+                animate={{ opacity: 1, zIndex: 30 }}
+                exit={{ opacity: 0, zIndex: 30 }}
+                transition={{ duration: 0.4 }}
+                ref={menuRef}
+              >
+                <PopupMenu className="chat-options__ul">
+                  <li className="chat-options__el">
+                    <span>Archive</span>
+                    <i className="ri-archive-line" />
+                  </li>
+                  <li className="chat-options__el">
+                    <span>Muted</span>
+                    <i className="ri-volume-mute-line" />
+                  </li>
+                  <li className="chat-options__el">
+                    <span>Delete</span>
+                    <i className="ri-delete-bin-line" />
+                  </li>
+                </PopupMenu>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </ChatHeaderControls>
     </ChatHeaderContainer>

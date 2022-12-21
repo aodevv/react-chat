@@ -10,7 +10,7 @@ import authReducer from "./auth/auth.reducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "chats"],
 };
 
 const rootReducer = combineReducers({
