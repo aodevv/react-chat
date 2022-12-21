@@ -8,6 +8,10 @@ export const LeftBottomContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 1000px) {
+    width: 100px;
+  }
+
   .menu-thumbnail {
     cursor: pointer;
   }
@@ -18,6 +22,10 @@ export const LeftBottomContainer = styled.div`
       left: 10px;
       z-index: 700;
       min-width: 160px;
+
+      @media (max-width: 1000px) {
+        left: -60px;
+      }
     }
 
     &__el {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Left from "./layout/Left/Left";
 import Center from "./layout/Center/Center";

@@ -4,6 +4,9 @@ export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const ImgContainer = styled.div`

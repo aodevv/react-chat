@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  ChatItemContainer,
-  ChatContent,
-  ChatRight,
-  UnreadCount,
-} from "./ChatItem.styles";
+import { ChatItemContainer, ChatContent, ChatRight } from "./ChatItem.styles";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { HeadingSecendary } from "../utils/Heading/Headings";
 import { Badge } from "../utils/Badge/Badge.styles";
+
+import { connect } from "react-redux";
+import { showChats } from "../../redux/leftMenu/LeftMenu.actions";
 
 const ChatItem = ({
   name,
@@ -24,9 +22,11 @@ const ChatItem = ({
   getMessages,
   actives,
   messages,
+  showChats,
 }) => {
   const newActives = actives.map((active, idx) => (index === idx ? 1 : 0));
   const setActive = () => {
+    showChats();
     if (JSON.stringify(actives) === JSON.stringify(newActives)) {
       return;
     }
@@ -56,4 +56,8 @@ const ChatItem = ({
   );
 };
 
-export default ChatItem;
+const mapDispatchToPros = (dispatch) => ({
+  showChats: () => dispatch(showChats()),
+});
+
+export default connect(null, mapDispatchToPros)(ChatItem);

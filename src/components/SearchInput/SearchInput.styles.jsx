@@ -6,7 +6,7 @@ export const SearchInputContainer = styled.div`
 
   span {
     position: relative;
-    width: 10%;
+    width: 40px;
     height: 4.3rem;
     background-color: var(--color-grey-light-2);
     border-radius: 5px 0px 0px 5px;

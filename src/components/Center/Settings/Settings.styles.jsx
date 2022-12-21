@@ -43,6 +43,10 @@ export const DropdownContainer = styled.div`
     color: rgba(128, 128, 128, 0.726);
     transition: color 0.3s ease;
   }
+
+  @media (max-width: 1000px) {
+    padding-bottom: 7rem;
+  }
 `;
 
 export const PrivacyControl = styled.div`

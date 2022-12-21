@@ -68,7 +68,7 @@ const Login = ({ login }) => {
       </div>
       <div className="login__footer">
         <p className="u-mb-s">
-          Don't have an account ? <a href="#">Signup now</a>
+          Don't have an account ? <button>Signup now</button>
         </p>
         <p className="u-mb-l">
           © 2022 AoDev. Crafted with <i className="ri-heart-fill" /> by Oussama

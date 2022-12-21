@@ -12,7 +12,7 @@ import { selectIds } from "../../redux/leftMenu/LeftMenu.selectors";
 
 import "./Center.scss";
 
-const Center = ({ ids }) => {
+const Center = ({ ids, layout }) => {
   const getComponent = (ids) => {
     switch (ids.leftMenu.indexOf(1)) {
       case 0:

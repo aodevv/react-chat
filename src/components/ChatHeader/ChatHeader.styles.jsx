@@ -12,10 +12,33 @@ export const ChatHeaderContainer = styled.div`
 export const ChatHeaderName = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 500px) {
+    .screen500 {
+      margin-right: 0.6rem !important;
+    }
+  }
+
+  span {
+    display: none;
+  }
+
+  @media (max-width: 1000px) {
+    span {
+      display: inline;
+    }
+  }
 `;
 
 export const ChatHeaderControls = styled.div`
   display: flex;
+
+  @media (max-width: 500px) {
+    .dnone {
+      display: none;
+    }
+  }
+
   .chat-options {
     position: relative;
 

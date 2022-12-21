@@ -8,12 +8,14 @@ import {
   selectCurrentChats,
 } from "../../redux/chats/chats.selectors";
 
+import { selectChatsVisibility } from "../../redux/leftMenu/LeftMenu.selectors";
+
 import ChatHeader from "../../components/ChatHeader/ChatHeader";
 import ActiveChat from "../../components/ActiveChat/ActiveChat";
 import SenfForm from "../../components/SendForm/SenfForm";
 import "./Right.scss";
 
-const Right = ({ convId, chatList }) => {
+const Right = ({ convId, chatList, chatsVisibility }) => {
   const [curName, setCurName] = useState("");
   const [curStatus, setCurStatus] = useState("");
   const [curImg, setCurImg] = useState(null);
@@ -30,7 +32,7 @@ const Right = ({ convId, chatList }) => {
   });
 
   return (
-    <div className="Right">
+    <div className={`Right ${chatsVisibility ? "visible" : ""}`}>
       <ChatHeader
         inactive={inactive}
         img={curImg}
@@ -46,6 +48,7 @@ const Right = ({ convId, chatList }) => {
 const mapStateToProps = createStructuredSelector({
   convId: selectCurrentConversation,
   chatList: selectCurrentChats,
+  chatsVisibility: selectChatsVisibility,
 });
 
 export default connect(mapStateToProps)(Right);

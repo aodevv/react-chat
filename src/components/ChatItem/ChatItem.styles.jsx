@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { BadgeRound } from "../utils/Badge/Badge.styles";
 
 export const ChatItemContainer = styled.div`
   display: flex;

@@ -25,6 +25,10 @@ export const RightCenter = styled.div`
     color: rgba(128, 128, 128, 0.726);
     transition: color 0.3s ease;
   }
+
+  @media (max-width: 500px) {
+    padding: 1rem 0 1rem 1rem;
+  }
 `;
 
 export const MessagesUl = styled.ul`

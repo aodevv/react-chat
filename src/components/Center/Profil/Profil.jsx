@@ -43,7 +43,7 @@ const Profil = () => {
   return (
     <ProfilContainer>
       <ProfilContainerHeader>
-        <HeadingPrimary text="Profil" className="u-mb-s" />
+        <HeadingPrimary text="Profile" className="u-mb-s" />
         <div className="profile-actions">
           <div ref={dotsRef} onClick={() => setIsClose(!isClose)}>
             <i className="ri-more-2-fill"></i>
@@ -119,7 +119,7 @@ const Profil = () => {
         </div>
         <div className="u-mt-s">
           <p>Email</p>
-          <h5>aimarah.oussama@gmail.com</h5>
+          <h5>contact@aodev.io</h5>
         </div>
         <div className="u-mt-s">
           <p>Location</p>

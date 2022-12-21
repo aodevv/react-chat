@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ChatsTop, ChatsBottom } from "../Chats/Chats.styles";
-import { HeadingPrimary, HeadingSecendary } from "../../utils/Heading/Headings";
+import { HeadingPrimary } from "../../utils/Heading/Headings";
 import SearchInput from "../../SearchInput/SearchInput";
 
 import GroupsList from "../../ChatList/GroupsList";

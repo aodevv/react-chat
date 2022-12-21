@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ChatItemContainer,
-  ChatContent,
-  ChatRight,
-  UnreadCount,
-} from "./ChatItem.styles";
+import { ChatItemContainer, ChatContent, ChatRight } from "./ChatItem.styles";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { HeadingSecendary } from "../utils/Heading/Headings";
 import { Badge } from "../utils/Badge/Badge.styles";

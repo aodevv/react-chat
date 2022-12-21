@@ -36,4 +36,14 @@ export const IconContainer = styled.li`
     }
   }
   ${getActive}
+
+  @media (max-width: 1000px) {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+
+  @media (max-width: 500px) {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
 `;

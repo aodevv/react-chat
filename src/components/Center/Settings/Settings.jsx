@@ -27,6 +27,7 @@ import {
 import ana from "../../../assets/oussama.jpg";
 
 const Settings = () => {
+  // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = useState("Active");
   const menuRef = useRef();
   const statusRef = useRef();
@@ -94,7 +95,7 @@ const Settings = () => {
         </StatusControlContainer>
       </ProfilInfo>
       <DropdownContainer>
-        <Dropdown name="Personal Info">
+        <Dropdown name="Personal Infos">
           <div className="u-dflex u-jcsb">
             <div>
               <p>Name</p>
@@ -105,7 +106,7 @@ const Settings = () => {
           </div>
           <div className="u-mt-s">
             <p>Email</p>
-            <h5>aimarah.oussama@gmail.com</h5>
+            <h5>contact@aodev.io</h5>
           </div>
           <div className="u-mt-s">
             <p>Location</p>

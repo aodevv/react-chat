@@ -72,6 +72,10 @@ export const MsgTextContainer = styled.div`
     display: inline-block;
     overflow-wrap: break-word;
 
+    @media (max-width: 500px) {
+      max-width: 260px;
+    }
+
     p {
       font-size: 1.5rem;
     }

@@ -19,6 +19,7 @@ const ActiveChat = ({ Messages, setMessagesSenders }) => {
       setMessagesSenders(Messages.map((msg, index) => msg.received));
       scrollToBottom();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Messages]);
   return (
     <RightCenter>

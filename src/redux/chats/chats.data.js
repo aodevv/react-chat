@@ -13,7 +13,7 @@ export const Chats = [
     name: "Lalo Salamanca",
     lastMessage: "okay sure",
     img: "/images/ll.jpg",
-    status: "away",
+    status: "offline",
     time: "00:26",
     unread: 3,
   },
@@ -187,7 +187,7 @@ export const Messages = [
     },
     {
       sender: "Lalo Salamnca",
-      content: "I saw some progress the week",
+      content: "I saw some progress last week",
       isRight: false,
       time: "00:24",
       img: "/images/ll.jpg",

@@ -9,10 +9,12 @@ import {
 } from "./ChatHeader.styles";
 
 import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
+import { connect } from "react-redux";
+import { collapseChats } from "../../redux/leftMenu/LeftMenu.actions";
 
 import PopupMenu from "../utils/PopupMenu/PopupMenu";
 
-const ChatHeader = ({ img, status, name, inactive }) => {
+const ChatHeader = ({ img, status, name, inactive, collapseChats }) => {
   const menuRef = useRef();
   const btnRef = useRef();
 
@@ -37,18 +39,24 @@ const ChatHeader = ({ img, status, name, inactive }) => {
   return (
     <ChatHeaderContainer>
       <ChatHeaderName>
+        <span
+          onClick={collapseChats}
+          style={{ marginRight: "10px", fontSize: "16px", cursor: "pointer" }}
+        >
+          <i class="ri-arrow-left-s-line" />
+        </span>
         <Thumbnail
           isBig={false}
           img={img}
           status={false}
           inactive={inactive}
-          className="u-mr-s"
+          className="u-mr-s screen500"
         />
         <HeadingSecendary text={name} isBig={true} className="u-mr-xs" />
         <Badge inactive={inactive} status={status} />
       </ChatHeaderName>
       <ChatHeaderControls inactive={inactive}>
-        <div>
+        <div className="dnone">
           <i className="ri-search-line" />
         </div>
         <div>
@@ -57,7 +65,7 @@ const ChatHeader = ({ img, status, name, inactive }) => {
         <div>
           <i className="ri-vidicon-line" />
         </div>
-        <div>
+        <div className="dnone">
           <i className="ri-user-2-line" />
         </div>
         <div className="chat-options">
@@ -101,4 +109,8 @@ const ChatHeader = ({ img, status, name, inactive }) => {
   );
 };
 
-export default ChatHeader;
+const mapDispatchToPros = (dispatch) => ({
+  collapseChats: () => dispatch(collapseChats()),
+});
+
+export default connect(null, mapDispatchToPros)(ChatHeader);

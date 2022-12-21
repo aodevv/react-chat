@@ -37,9 +37,13 @@
       color: var(--bs-gray-700);
       font-size: 1.5rem;
 
-      a {
-        text-decoration: none;
+      button {
+        border: 0;
+        background-color: transparent;
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
         color: var(--color-primary-light);
+        cursor: pointer;
       }
 
       i {
@@ -55,6 +59,10 @@
     width: 456px;
     border-radius: 0.6rem;
     margin-bottom: 5.6rem;
+
+    @media (max-width: 500px){
+      width: 400px;
+    }
 
     .r-me {
       & > div {

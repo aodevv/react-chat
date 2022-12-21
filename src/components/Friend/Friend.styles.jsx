@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Badge } from "../utils/Badge/Badge.styles";
 
 export const FriendLi = styled.li`
   list-style: none;

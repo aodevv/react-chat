@@ -6,3 +6,8 @@ export const selectIds = createSelector(
   [selectLeftMenu],
   (leftMenu) => leftMenu
 );
+
+export const selectChatsVisibility = createSelector(
+  [selectLeftMenu],
+  (leftMenu) => leftMenu.chatContainer
+);

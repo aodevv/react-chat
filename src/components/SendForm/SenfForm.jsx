@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -47,11 +47,12 @@ const SenfForm = ({
       );
       const newMessagesList = [...messages, newMessage];
       setCurrentMessages([...messages, newMessage]);
-      console.log(newMessagesList);
+      // console.log(newMessagesList);
+      const convIdInt = { cnv1: 0, cnv2: 1, cnv3: 2, cnv4: 3 };
       const allMessagesCopy = structuredClone(allMessages);
       const newAllMessages = allMessagesCopy.map((conv, id) => {
-        console.log(id, convId);
-        if (id === convId) {
+        // console.log(id, convIdInt[convId]);
+        if (id === convIdInt[convId]) {
           return newMessagesList;
         } else {
           return conv;
@@ -70,10 +71,6 @@ const SenfForm = ({
       setMessage(e.target.value);
     }
   };
-
-  useEffect(() => {
-    console.log(allMessages);
-  }, []);
 
   return (
     <FormContainer>

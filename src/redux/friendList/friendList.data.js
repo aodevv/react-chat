@@ -6,17 +6,17 @@ export const Friends = [
   },
   {
     name: "Gus",
-    status: "offline",
+    status: "online",
     img: "/images/gus.png",
   },
   {
     name: "Nacho",
-    status: "away",
+    status: "online",
     img: "/images/nacho.jpg",
   },
   {
     name: "Jesse",
-    status: "offline",
+    status: "away",
     img: null,
   },
   {

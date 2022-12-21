@@ -24,10 +24,10 @@ const ChatList = ({
   messages,
   setActiveConversation,
 }) => {
-  console.log(chats);
   useEffect(() => {
     setActiveChats(chats.map((chat) => 0));
     //setActiveChats([0, 1, 0, 0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <ChatListContainer>
