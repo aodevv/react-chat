@@ -19,12 +19,12 @@ export const ChatHeaderName = styled.div`
     }
   }
 
-  span {
+  .collapse {
     display: none;
   }
 
   @media (max-width: 1000px) {
-    span {
+    .collapse {
       display: inline;
     }
   }

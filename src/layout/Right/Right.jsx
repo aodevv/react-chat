@@ -29,7 +29,7 @@ const Right = ({ convId, chatList, chatsVisibility }) => {
       setCurStatus(found.status);
       setCurImg(found.img);
     } else setCurName("");
-  });
+  }, [convId, chatList]);
 
   return (
     <div className={`Right ${chatsVisibility ? "visible" : ""}`}>

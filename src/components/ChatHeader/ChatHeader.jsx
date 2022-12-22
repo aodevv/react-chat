@@ -40,10 +40,11 @@ const ChatHeader = ({ img, status, name, inactive, collapseChats }) => {
     <ChatHeaderContainer>
       <ChatHeaderName>
         <span
+          className="collapse"
           onClick={collapseChats}
           style={{ marginRight: "10px", fontSize: "16px", cursor: "pointer" }}
         >
-          <i class="ri-arrow-left-s-line" />
+          <i className="ri-arrow-left-s-line" />
         </span>
         <Thumbnail
           isBig={false}
@@ -53,7 +54,7 @@ const ChatHeader = ({ img, status, name, inactive, collapseChats }) => {
           className="u-mr-s screen500"
         />
         <HeadingSecendary text={name} isBig={true} className="u-mr-xs" />
-        <Badge inactive={inactive} status={status} />
+        <Badge status={status} />
       </ChatHeaderName>
       <ChatHeaderControls inactive={inactive}>
         <div className="dnone">
