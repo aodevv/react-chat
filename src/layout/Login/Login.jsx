@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import logo from "../../assets/aodev-logo-md.png";
 import IconInput from "../../components/utils/IconInput/IconInput";
@@ -19,17 +19,11 @@ const Login = ({ login }) => {
 
   const handleLogin = () => {
     setIsLoading(true);
-  };
-
-  useEffect(() => {
-    const loginTimeout = setTimeout(() => {
+    setTimeout(() => {
       login();
       setIsLoading(false);
     }, 3000);
-    return () => {
-      clearTimeout(loginTimeout);
-    };
-  }, [isLoading, login]);
+  };
 
   return (
     <div className="login">
